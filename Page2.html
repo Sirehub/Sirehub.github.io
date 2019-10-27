@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- Developing with style: CSS --> <!--&nbsp; --> 
+<!-- To Do List
+
+https://www.khanacademy.org/computer-programming/css-the-font-size-property/6229082618724352
+https://www.khanacademy.org/computer-programming/css-the-descendant-selector/4674155417174016
+Multiple selectors
+Text stuff
+
+--> 
+<!--  PART 2  -->
+<html>
+
+	<head>
+	
+		<meta charset = "utf-8">
+		
+		<title> Fancy-ness Intensifies! </title>
+		
+		<style>
+		/* This is the Style tag, it is where we tell CSS how to style stuff */ /*  */
+		/* Also this is how we write comments in CSS! */
+		
+		/* To Style a tag:
+		Frist we type in the tag's name
+		Second we add curly braces
+		Finally we give it a style */
+		
+		body {
+			font-family: arial;
+			background-color: rgb(54, 54, 54);
+		}
+		
+		/* When you style a tag, it will apply it to all of the same tags */
+		h1 {
+			/* `font-family` changes the text's font. It can have multiple fonnts in it, this 
+			will be the other fonts the browser will fallback to if the first ones fail to render*/
+			font-family: Times New Roman, monospace, arial;
+			
+			/* `background-color` changes the tag's background color*/
+			background-color: rgb(136, 87, 181);
+			
+			/* while `color` changes the text's color */
+			color: rgb(6, 0, 71);
+		}
+		
+		/* You may use any of these to define colors:
+		rgb() - A triplet of values from 0 to 255, representing the Red-Green-Blue color spectrum.	
+		rgba() - Like rgb(), but with a fourth value representing the opacity, ranging from 0 to 1.
+		hex - A hexadecimal number representing the R-G-B triplet.
+		*/
+		p {
+			color: #9e36ff;
+		}
+		
+		h2 {
+			background-color: rgb(54, 255, 128);
+			color: rgba(65, 0, 176, 0.25);
+		}
+		
+		/*Refer to "line xxx" first.*/
+		/*If you want only a specific tag to be styled differently, we use ids!
+		In order to style a specific id we type in a hash symbol then the id's name.*/
+		#gaspage {
+			color: rgb(255, 56, 73);
+		}
+		
+		/*Refer to "line xxx" first.*/
+		/*If you want only a multiple tags to be styled, we use classes!
+		In order to style a specific class we type in a dot symbol then the class's name.*/
+		.fancyh3{
+			/*This is used for aligning text, it may use "left", "center", "right" or "justify" */
+			text-align: center;
+			color: rgb(255, 105, 94);
+			/*This is used for font size (light to bold depending on how big the number is)*/
+			font-weight: 900;
+		}
+		
+		/*If you want to only style a class with a specific then we put the tag's name before.*/
+		li.fancyh3{
+			background-color: rgb(255, 172, 166);
+		}
+		
+		</style>
+		
+	</head>
+	
+	<body>
+	
+		<h1> I'm Fancy Header! </h1>
+		<p> This heading is qui- </p>
+		
+		<h1> No, I'm Fancier Header! </h1>
+		<p> Hmm, both of these headings are a quite fancy to me. </p>
+		
+		<h2> Ohnoes I'm fa a a a d i i i n g </h2>
+		<p id="gaspage"> (GASP) The second header is FADING! </p>
+		<!-- This is how we attach unique `ids` to tags. 
+		ids Are used for many reasons, one of them is styling. -->
+		
+		<h3 class="fancyh3"> Here's Top 3 Reasons As To Why I'm Fancier Than Everything Else </h3>
+		<!-- This is how we attached classes to tags.
+		classes are like ids but may be used for multiple tags. --> 
+		
+		<ol>
+		
+		<li class="fancyh3"> I can control the fanciness of every tag with a "fancyh3" class!</li>
+		<li class="fancyh3"> I'm really just helpful (and fancy)! </li>
+		<li class="fancyh3"> I'm very boldly organized! </li>
+		
+		</ol>
+	
+	</body>
+
+</html>
