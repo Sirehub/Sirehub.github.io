@@ -28,20 +28,19 @@ Text stuff
 		
 		body {
 			font-family: arial;
-			background-color: rgb(54, 54, 54);
+			background-color: rgb(28, 28, 28);
 		}
 		
 		/* When you style a tag, it will apply it to all of the same tags */
 		h1 {
 			/* `font-family` changes the text's font. It can have multiple fonnts in it, this 
 			will be the other fonts the browser will fallback to if the first ones fail to render*/
-			font-family: Times New Roman, monospace, arial;
+			font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 			
 			/* `background-color` changes the tag's background color*/
-			background-color: rgb(136, 87, 181);
-			
+			background-color: rgb(159, 191, 157);
 			/* while `color` changes the text's color */
-			color: rgb(6, 0, 71);
+			color: rgb(9, 145, 0);
 		}
 		
 		/* You may use any of these to define colors:
@@ -50,19 +49,22 @@ Text stuff
 		hex - A hexadecimal number representing the R-G-B triplet.
 		*/
 		p {
-			color: #9e36ff;
+			color: #099100;
 		}
 		
 		h2 {
-			background-color: rgb(54, 255, 128);
-			color: rgba(65, 0, 176, 0.25);
+			background-color: rgb(0, 0, 0);
+			color: rgba(9, 145, 0, 0.10);
 		}
 		
 		/*Refer to "line xxx" first.*/
 		/*If you want only a specific tag to be styled differently, we use ids!
 		In order to style a specific id we type in a hash symbol then the id's name.*/
 		#gaspage {
-			color: rgb(255, 56, 73);
+			/*The font-style property is mostly used to specify italic text.
+			It may use take in "normal", "italic" or "oblique" which is like italic but less supported*/
+			font-style: italic;
+			color: rgb(255, 0, 0);
 		}
 		
 		/*Refer to "line xxx" first.*/
@@ -71,14 +73,14 @@ Text stuff
 		.fancyh3{
 			/*This is used for aligning text, it may use "left", "center", "right" or "justify" */
 			text-align: center;
-			color: rgb(255, 105, 94);
+			color: rgb(9, 145, 0);
 			/*This is used for font size (light to bold depending on how big the number is)*/
 			font-weight: 900;
 		}
 		
 		/*If you want to only style a class with a specific then we put the tag's name before.*/
 		li.fancyh3{
-			background-color: rgb(255, 172, 166);
+			background-color: rgb(118, 173, 126);
 		}
 		
 		</style>
@@ -87,26 +89,26 @@ Text stuff
 	
 	<body>
 	
-		<h1> I'm Fancy Header! </h1>
+		<h1> A Fancy Header! </h1>
 		<p> This heading is qui- </p>
 		
-		<h1> No, I'm Fancier Header! </h1>
+		<h1> No, A Fancier Header! </h1>
 		<p> Hmm, both of these headings are a quite fancy to me. </p>
 		
-		<h2> Ohnoes I'm fa a a a d i i i n g </h2>
-		<p id="gaspage"> (GASP) The second header is FADING! </p>
+		<h2> I literally have the same color as  the h1 and p  tags, why am I so dim?</h2>
+		<p id="gaspage"> (GASP) That's cause it's FADING! </p>
 		<!-- This is how we attach unique `ids` to tags. 
 		ids Are used for many reasons, one of them is styling. -->
 		
-		<h3 class="fancyh3"> Here's Top 3 Reasons As To Why I'm Fancier Than Everything Else </h3>
+		<h3 class="fancyh3"> Here's Top 3 Reasons As To Why This Header is the Fanciest </h3>
 		<!-- This is how we attached classes to tags.
 		classes are like ids but may be used for multiple tags. --> 
 		
 		<ol>
 		
-		<li class="fancyh3"> I can control the fanciness of every tag with a "fancyh3" class!</li>
-		<li class="fancyh3"> I'm really just helpful (and fancy)! </li>
-		<li class="fancyh3"> I'm very boldly organized! </li>
+		<li class="fancyh3"> The style of the 3rd header and this list is controlled by the "fancyh3" class!</li>
+		<li class="fancyh3"> It's really helpful! (And Fancy!) </li>
+		<li class="fancyh3"> It's so boldly organized! </li>
 		
 		</ol>
 	
