@@ -9,6 +9,23 @@ Neon Purple
  https://www.colorhexa.com/d153e8
  
   <hr class="PostSeparator">
+  
+The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e27320455.gif
+.__________________________.
+|.........Margin...........|
+|...____________________...|
+|..|.......Border.......|..|
+|..|...______________...|..|
+|..|..|...Padding....|..|..|
+|..|..|...________...|..|..|
+|..|..|..|Content|...|..|..|
+|..|..|..|_______|...|..|..|
+|..|..|..............|..|..|
+|..|..|______________|..|..|
+|..|....................|..|
+|..|____________________|..|
+|..........................|
+|__________________________|
 
 -->
 <html>
@@ -17,7 +34,23 @@ Neon Purple
 		<title> Lorem Ipsum </title>
 		
 		<style>
-			body {
+			body{
+				margin:0%;
+			}
+			#Sidebar{
+				background-size: 10%;
+				background-color: rgb(59, 59, 59);
+				border-style: solid none solid solid;
+				border-color: rgb(36, 41, 46);
+				border-width: 20px;
+
+				position:fixed;
+				width:20%;
+				height: 100%;
+				margin: 0px;
+				box-sizing: border-box;
+			}
+			#MainBody {
 				background: url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Top-left%20Background.png") left top no-repeat, url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Bottom-right%20Background.png") bottom right no-repeat, url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Main%20Background.png") left top repeat;
 				background-size: 10%;
 				background-color: rgb(59, 59, 59);
@@ -27,7 +60,11 @@ Neon Purple
 				
 				font-family: monospace;
 				
+				float:right;
+				width: 80%;
+				height: 100%
 				margin: 0px;
+				box-sizing: border-box;
 			}
 			
 			/* For emboldening and italizing stuff, where emphasis and strong tags don't fit. */
@@ -195,9 +232,15 @@ Neon Purple
 		/* FOOT END */ /* FOOT END */ /* FOOT END */
 			
 		</style>
-	</head>
+</head>
 	
-	<body>
+<body>
+	<div id="Sidebar">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+
+	<div id="MainBody">
+
 	 <div id="BlogHeader">	
 		<h1 class="BlogTitle"> Page of Random </h1>
 
@@ -255,7 +298,8 @@ Neon Purple
 		    <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
 		</ul>
 	</div>
-		
-	</body>
+	
+	</div>	
+</body>
 	
 </html>
