@@ -27,7 +27,7 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 |..|____________________|..|
 |..........................|
 |__________________________|
-.
+
 -->
 <html>
 	<head>
@@ -35,28 +35,20 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 		<title> Lorem Ipsum </title>
 		
 		<style>
-			body{
-				margin:0%;
-				font-family: monospace;
-			}
-			/* For emboldening and italizing stuff, where emphasis and strong tags don't fit. */
-			span.bold{
-				font-weight: bold;
-				font-size: 15px;
-			}
-			span.italic{
-				font-style: italic;
-			}
-			/* Bullets are Squares */
-			ul{
-				list-style-type: square;
-			}
-			/* Different colored Links */
-			a.green{
-				color: rgb(116,165,22);				
-			}
+			body{ margin: 0%; font-family: monospace; }
 			
-			#Sidebar{
+			/* For emboldening and italizing stuff, where emphasis and strong tags don't fit. */
+			span.bold{ font-weight: bold; font-size: 15px; }
+			span.italic{ font-style: italic; }
+			
+			/* Bullets are Squares */
+			ul{ list-style-type: square; }
+			
+			/* Different colored Links */
+			a.green{ color: rgb(116,165,22); }
+			a.blue { color: rgb(128,146,238); }
+			
+			aside{
 				margin: 0px;
 				box-sizing: border-box;
 				
@@ -67,6 +59,8 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 				position:fixed;
 				width:20%;
 				height: 100%;
+				
+				text-align: center;
 				
 				background-size: 10%;
 				background-color: rgb(86,86,86);
@@ -81,12 +75,39 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 				border-color: rgb(36,41,46);
 				border-width: 5px;
 				
-				text-align: center;
+				color: rgb(181, 232, 83);
+			}
+			.SideBarInfo{
+				margin: 15px auto 15px auto;
+				padding: 0px 10px 15px 10px;
+				
+				border-style: none none solid none;
+				border-color: rgb(36,41,46);
+				border-width: 5px;
+				
+				text-align: left;
 				
 				color: rgb(181, 232, 83);
 			}
+			.NavHeader{
+				margin: auto;
+				padding: 0px 10px 0px 10px;
+				
+				color: rgb(128,146,238);
+			}
+			aside nav{
+				margin: auto;
+				padding: 0px 10px 15px 10px;
+				
+				border-style: none none solid none;
+				border-color: rgb(36,41,46);
+				border-width: 5px;
+				
+				line-height: 1.5em;
+				text-align: left;
+			}
 			
-			#MainBody {
+			main{
 				margin: 0px;
 				box-sizing: border-box;
 				
@@ -98,20 +119,23 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 				width: 80%;
 				height: 100%;
 				
-				background: url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Top-left%20Background.png") left top no-repeat, url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Bottom-right%20Background.png") bottom right no-repeat, url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Main%20Background.png") left top repeat;
+				background: 
+					url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Top-left%20Background.png") left top no-repeat, 
+					url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Bottom-right%20Background.png") bottom right no-repeat, 
+					url("https://raw.githubusercontent.com/Sirehub/Sirehub.github.io/master/images/Main%20Background.png") left top repeat;
 				background-size: 10%;
 				background-color: rgb(62,70,79);
 	
 			}
 /* HEAD */ /* HEAD */ /* HEAD */
-			#BlogHeader{ /*div*/
+			main header{
 				border-style: none none solid none;
 				border-color: rgb(36,41,46);
 				border-width: 20px;
 				overflow: auto;
 			}
 			
-			h1.BlogTitle {
+			h1.BlogTitle{
 				margin: 15px 10px 15px 10px;
 				
 				border-style: none solid none solid;
@@ -144,19 +168,14 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 				background-image: linear-gradient(to right, rgba(100,143,19,0.2), rgba(181,232,83,0.2), rgba(100,143,19,0.2));
 				color: rgb(148, 210, 28);
 			}
-			ul.JumperLeft{				
-				float: left;
-			}
-			ul.JumperRight{
-				float: right;
-				direction: rtl;
-			}
+			ul.JumperLeft{ float: left; }
+			ul.JumperRight{ float: right; direction: rtl; }
 /* HEAD END */ /* HEAD END */ /* HEAD END */
 			
 			
 /* BODY */ /* BODY */ /* BODY */
-			h2.BlogPostTitle {
-				margin: 10px auto 10px auto;
+			h2.BlogPostTitle{
+				margin: 15px auto 15px auto;
 				
 				border-style: none solid none solid;
 				border-color: rgb(128,146,238);
@@ -171,9 +190,8 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 				color: rgb(128,146,238);
 				text-shadow: 0px 0px 2px rgba(150,165,241, 0.90), 0px 0px 4px rgba(173,185,244, 0.90);
 			}
-			
-			p.BlogPost {
-				margin: 10px auto 10px auto;
+			p.BlogPost{
+				margin: 15px auto 15px auto;
 				padding: 10px;
 				
 				border-style: none none none solid;
@@ -189,34 +207,25 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 				background-image: linear-gradient(to right, rgba(25,51,188,0.2), rgba(128,146,238,0.2));
 				color: rgb(61,88,229);
 			}
-			
-			#LeftPosts{ /*div*/
-				float: left;
-				width: 50%;
-			}
-			
-			#RightPosts{ /*div*/
-				float: right;
-				width: 50%;
-			}
+			#LeftPosts{ float: left; width: 50%; }
+			#RightPosts{ float: right; width: 50%; }
 			
 			/*Post Separator*/
 			hr.PostSeparator{
 				margin: auto;
-				border: 5px dashed rgb(61,88,229);
+				border: 1px solid rgb(61,88,229);
 				width: 75%;
 			}
 /* BODY END */ /* BODY END */ /* BODY END */
 			
 			
 /* FOOT */ /* FOOT */ /* FOOT */
-			#BlogFooter{ /*div*/
+			main footer{
 				border-top: solid;
 				border-top-color: rgb(36,41,46);
 				border-top-width: 20px;
 				clear: both;
 			}
-			
 			h3.FooterHead{
 				margin:30px 10px 15px 10px;
 				
@@ -233,9 +242,8 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 				
 				overflow: auto;
 			}
-			
 			ul.Footer{
-				margin: 15px auto 30px auto;
+				margin: 20px auto 30px auto;
 				padding: 2px 30px 2px 30px;
 				
 				border-left: solid;
@@ -258,15 +266,25 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 </head>
 	
 <body>
-	<div id="Sidebar">
+<aside>
+	<header>
+		<h2 id="SideBarHeader"> Duis Aute </h2>
+		<p class="SideBarInfo"> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+	</header>
 	
-	<h1 id="SideBarHeader"> Duis Aute </h1>
+	<h3 class="NavHeader"> Visit my other pages! </h3>
+	<nav>
+	<a class="blue" href="test"> non - Sed do eiusmod tempor. </a> <br>
+	<a class="blue" href="test"> sunt - Fugiat nulla pariature. </a> <br>
+	<a class="blue" href="test"> dolore - Irure dolor in laboris. </a> <br>
+	<a class="blue" href="test"> eiusmod - Aliquip ex ea commodo. </a>
+	</nav>
 	
-	</div>
+</aside>
 
-	<div id="MainBody">
+<main>
 
-	 <div id="BlogHeader">	
+	<header>	
 		<h1 class="BlogTitle"> Page of Random </h1>
 
 		<ul class="Jumper JumperLeft">
@@ -282,9 +300,9 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 			<li> <a class="green" href="#entry6"> Lorem #6 </a> </li>
 			<li> <a class="green" href="#Footer"> Footer </a> </li>
 		</ul>
-	 </div>
+	</header>
 		
-	 <div id="LeftPosts">
+	<section id="LeftPosts">
 		<h2 class="BlogPostTitle" id="entry1"> Lorem #1 </h2>
 		<p class="BlogPost"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
 		
@@ -297,8 +315,8 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 		
 		<h2 class="BlogPostTitle" id="entry5"> Lorem #5 </h2>
 		<p class="BlogPost"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-	 </div>	
-	 <div id="RightPosts">	
+	</section>	
+	<section id="RightPosts">	
 		<h2 class="BlogPostTitle" id="entry2"> Lorem #2 </h2>
 		<p class="BlogPost"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
 		
@@ -311,9 +329,9 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 		
 		<h2 class="BlogPostTitle" id="entry6"> Lorem #6 </h2>
 		<p class="BlogPost"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-	 </div>
+	</section>
 	
-	 <div id="BlogFooter">
+	<footer>
 		<h3 class="FooterHead"> Ad minim veniam:  </h3>
 		
 		<ul class="Footer" id="Footer"> 
@@ -322,9 +340,16 @@ The Box Model: https://i.pinimg.com/originals/25/37/72/2537725d5fa341801f2da60e2
 		    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
 		    <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
 		</ul>
-	 </div>
+	</footer>
 	
-	</div>	
+<main>	
+
+
+<script>
+
+
+</script>
+
 </body>
 	
 </html>
