@@ -1,139 +1,241 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYbuttonE html>
+<!-- 
+https://www.piskelapp.com/
+https://www.w3schools.com/colors/colors_hsl.asp
+ -->
 
-    <head>
-        <meta charset="utf-8">
-        <title>Project: Travel webpage</title>
-        
-        <style>
-		
-			h1{
-				background-image: linear-gradient(to left, red,orange,yellow,green,blue,indigo,violet);
-			}
-			#a{
-				background-color: rgb(45, 33, 54);
-				color: rgb(0, 0, 0);
-			}
-			#b{
-				background-color: rgb(57, 50, 104);
-				color: rgb(0, 0, 0);
-			}
-			#c{
-				background-color: rgb(64, 203, 138);
-				color: rgb(0, 0, 0);
-			}
-			#d{
-				background-color: rgb(99, 165, 42);
-				color: rgb(0, 0, 0);
-			}
-			#e{
-				background-color: rgb(59, 59, 59);
-				color: rgb(0, 0, 0);
-			}
-			#f{
-				background-color: rgb(36, 41, 46);
-				color: rgb(0, 0, 0);
-			}
-			#g{
-				background-color: rgb(234, 230, 209);
-				color: rgb(0, 0, 0);
-			}
-			#h{
-				background-color: rgb(102, 117, 136);
-				color: rgb(0, 0, 0);
-			}
-			#i{
-				background-color: rgb(181, 232, 83);
-				color: rgb(0, 0, 0);
-			}
-			#j{
-				background-color: rgb(27, 27, 27);
-				color: rgb(0, 0, 0);
-			}
-			#k{
-				background-color: rgb(2, 2 ,2);
-				color: rgb(0, 0, 0);
-			}
-			#l{
-				background-color: rgb(100, 191, 245);
-				color: rgb(0, 0, 0);
-			}
-			#m{
-				background-color: rgb(213, 0, 13);
-				color: rgb(0, 0, 0);
-			}
-			#n{
-				background-color: rgb(54, 57, 63);
-				color: rgb(0, 0, 0);
-			}
-			#o{
-				background-color: rgb(47, 49, 54);
-				color: rgb(0, 0, 0);
-			}
-			#p{
-				background-color: rgb(64, 68, 75);
-				color: rgb(0, 0, 0);
-			}
-			#q{
-				background-color: rgb(41, 43, 47);
-				color: rgb(0, 0, 0);
-			}
-			#r{
-				background-color: rgb(32, 34, 37);
-				color: rgb(0, 0, 0);
-			}
-			#s{
-				background-color: rgb(61, 181, 129);
-				color: rgb(0, 0, 0);
-			}
-			#t{
-				background-color: rgb(114, 118, 125);
-				color: rgb(0, 0, 0);
-			}
-			#u{
-				background-color: rgb(220, 221, 222);
-				color: rgb(0, 0, 0);
-			}
-			#v{
-				background-color: rgb(50, 54, 57);
-				color: rgb(0, 0, 0);
-			}
-			
-        </style>
-        
-    </head>
-    
+<html> 
+
+<head>
+	<meta charset = "utf-8">
+	<title> Themed Color Picker </title>
 	
-    <body>
+	<style>
+		body{ font-family: Courier New, Lucida Console, monospace; background-color: grey; }
+		header h1{ margin-top: 0px; border-bottom-style: double; text-align: center; font-size: 50px; }
 		
-		<h1> List of Colors </h1>
+		section{ clear: both;}
+		div{ padding: 0; box-sizing: border-box; border-style: solid; width: 25%; float: left;}
+		hr{ clear: both; padding: 5px; box-sizing: border-box; border-style: solid; background-color: black;}
+
+		button{ width: 100%; font-size: 40px; font-weight: bold;}
 		
-		<ul>
-			<li id="a">45, 33, 54 || #2d2136</li>
-			<li id="b">57, 50, 104 || #393268</li>
-			<li id="c">64, 203, 138 || #40cb8a</li>
-			<li id="d">99, 165, 42 || #63a52a</li>
-			<li id="e">59, 59, 59 || #3b3b3b</li>
-			<li id="f">36, 41, 46 || #24292e</li>
-			<li id="g">234, 230, 209 || #eae6d1</li>
-			<li id="h">102, 117, 136 || #667588</li>
-			<li id="i">181, 232, 83 || #b5e853</li>
-			<li id="j">27, 27, 27 || #1b1b1b</li>
-			<li id="k">2, 2 ,2 || #020202</li>
-			<li id="l">100, 191, 245 || #64bff5</li>
-			<li id="m">213, 0, 13 || #d5000d</li>
-			<li id="n">54, 57, 63 || #36393f</li>
-			<li id="o">47, 49, 54 || #2f3136</li>
-			<li id="p">64, 68, 75 || #40444b</li>
-			<li id="q">41, 43, 47 || #292b2f</li>
-			<li id="r">32, 34, 37 || #202225</li>
-			<li id="s">61, 181, 129 || #3db581</li>
-			<li id="t">114, 118, 125 || #72767d</li>
-			<li id="u">220, 221, 222 || #dcddde</li>
-			<li id="v">50, 54, 57 || #323639</li>
-			<li id="OOO">nums || hex</li>
-		</ul>
+		p.sprinkle{ margin: 0; color: white; background-color: black; }
+		button.sprinkle{ width: 20%; font-size: 11px; word-spacing: -10px; font-weight: bold; float: left;}
 		
-    </body>
-    
+		
+	
+	</style>
+</head>
+
+<body>
+<header>
+	<input name="phaseHash" type="checkbox" style="float: left; margin: 0px;"> Phase out the hash sign</input>
+	<h1> Themed Color Picker </h1>
+</header>
+
+<section>
+	<h1> Isleward Colors </h1>
+	<div>
+		<button>#ff4252</button>	
+		<button>#d43346</button>
+		<button>#a82841</button>	
+		<button>#802343</button>
+	</div>
+	<div>
+		<button>#ff6942</button>	
+		<button>#db5538</button>
+		<button>#b34b3a</button>	
+		<button>#953f36</button>
+	</div>
+	<div>
+		<button>#e39a30</button>	
+		<button>#ca752f</button>
+		<button>#b15a30</button>	
+		<button>#b15a30</button>
+	</div>
+	<div>
+		<button>#ffeb38</button>	
+		<button>#faac45</button>
+		<button>#d07840</button>	
+		<button>#9a5a3c</button>
+	</div>
+	<div>
+		<button>#80f643</button> 	
+		<button>#4ac441</button>
+		<button>#386646</button> 	
+		<button>#2b4b3e</button>
+	</div>
+	<div>
+		<button>#baffd7</button>	
+		<button>#51fc9a</button>
+		<button>#44cb95</button>	
+		<button>#3f8d6d</button>
+	</div>
+	<div>
+		<button>#48edff</button>	
+		<button>#3fa7dd</button>
+		<button>#3a71ba</button>	
+		<button>#42548d</button>
+	</div>
+	<div>
+		<button>#a24eff</button> 	
+		<button>#7a3ad3</button>
+		<button>#533399</button> 	
+		<button>#393268</button>
+	</div>
+	<div>
+		<button>#fc66f7</button> 	
+		<button>#de43ae</button>
+		<button>#b4347a</button> 	
+		<button>#933159</button>
+	</div>
+	<div>
+		<button>#fcfcfc</button> 	
+		<button>#c0c3cf</button>
+		<button>#929398</button> 	
+		<button>#737373</button>
+	</div>
+	<div>
+		<button>#505360</button> 	
+		<button>#3c3f4c</button>
+		<button>#373041</button> 	
+		<button>#312136</button>
+	</div>
+</section>
+<hr>
+<section>
+	<h1> Sand and Sky </h1>
+	<div>
+		<button>#c2b180</button> 	
+		<button>#bda251</button>
+		<button>#aa8c31</button> 	
+		<button>#8b6f1d</button>
+	</div>
+	<div>
+		<button>#8cbed9</button> 	
+		<button>#47a1d1</button>
+		<button>#1f7bad</button> 	
+		<button>#0d4f73</button>
+	</div>
+	<div>
+		<button>#cccace</button> 	
+		<button>#98959d</button>
+		<button>#65626a</button> 	
+		<button>#333135</button>
+	</div>
+	<div>
+		<button>#2f2244</button> 	
+		<button>#231a33</button>
+		<button>#181122</button> 	
+		<button>#0c0911</button>
+	</div>
+	
+</section>
+<hr>
+<section>
+	<h1> ・ﾟ:*✨✧ Color Sprinkles ✨:・ﾟ✧ </h1>
+	<div>
+		<p class="sprinkle">Day Sand Speckles</p>
+		<button class="sprinkle">#f5413b</button> 	
+		<button class="sprinkle">#f57571</button> 	
+		<button class="sprinkle">#e86417</button> 	
+		<button class="sprinkle">#f5ae2c</button> 	
+		<button class="sprinkle">#fffc59</button>
+		<button class="sprinkle">#c9ba2a</button> 	
+		<button class="sprinkle">#694417</button> 		
+		<button class="sprinkle">#89e85d</button> 	
+		<button class="sprinkle">#56e89d</button> 	
+		<button class="sprinkle">#95a0f5</button> 
+	</div>
+	<div>
+		<p class="sprinkle">Night Sand Speckles</p>
+		<button class="sprinkle">#1054c2</button> 	
+		<button class="sprinkle">#66aee8</button> 	
+		<button class="sprinkle">#098710</button> 	
+		<button class="sprinkle">#3acf4e</button> 
+		<button class="sprinkle">#921cbd</button>
+		<button class="sprinkle">#a15fe3</button> 	
+		<button class="sprinkle">#be59e3</button> 	 	
+		<button class="sprinkle">#db27cf</button> 
+		<button class="sprinkle">#cf65c8</button> 	
+		<button class="sprinkle">#d14b5b</button> 
+	</div>
+	<div>
+		<p class="sprinkle">text</p>
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 
+	</div>
+	<div>
+		<p class="sprinkle">text</p>
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 
+		<button class="sprinkle">#FFFFFF</button> 	
+		<button class="sprinkle">#FFFFFF</button> 
+	</div>
+	
+</section>
+
+<!--
+<div>
+	<button>#FFFFFF</button> 	
+	<button>#FFFFFF</button>
+	<button>#FFFFFF</button> 	
+	<button>#FFFFFF</button>
+</div>
+
+<div>
+	<p class="sprinkle">text</p>
+	<button class="sprinkle">#FFFFFF</button> 	
+	<button class="sprinkle">#FFFFFF</button> 	
+	<button class="sprinkle">#FFFFFF</button> 	
+	<button class="sprinkle">#FFFFFF</button> 
+	<button class="sprinkle">#FFFFFF</button> 	
+	<button class="sprinkle">#FFFFFF</button> 	
+	<button class="sprinkle">#FFFFFF</button> 	
+	<button class="sprinkle">#FFFFFF</button> 
+	<button class="sprinkle">#FFFFFF</button> 	
+	<button class="sprinkle">#FFFFFF</button> 
+</div>
+-->
+
+<!-- SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+// Automatically makes buttons background color into what in it's text. (Needs to be valid css value)
+$("button").each(function(){
+	var backgroundcolor = $(this).text();
+	$(this).css("background-color", backgroundcolor);
+});
+
+// Copies what in it's text to your clipboard
+$("button").on("click", function(){
+	if($("[name=phaseHash]").prop("checked")){
+		var copyText = $(this).text().replace("#", "");
+	}else{
+		var copyText = $(this).text();
+	}
+	navigator.clipboard.writeText(copyText);
+});
+
+
+</script>
+
+</body>
+
 </html>
