@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Page Title</title>
+	<style>
+		* { box-sizing: border-box; }
+		
+		p { margin: 2px; }
+		body { margin: 1px; color: #2fc12f; font-family: monospace; background-color: black; }
+		button { color: green; outline: none; border-color: #149414; background-color: #0a0a0a; }
+
+/* Stuff */
+		.container{ font-size: 0px; }
+		.container::after{ content: "\a0"; }
+		.upShift { margin: -1px 0 0 0; }
+		.leftShift { margin: 0 0 0 -1px; }
+		.rightShift { margin: 0 -1px 0 0; }
+		.attachToBottom { width: 100%; position: absolute; bottom: 0px; left: 0px;}
+		
+/* Panels where everything is located in */
+		.character-panels {
+			width: 50%;
+			float: left;
+			
+			text-align: center;
+			font-size: 17px;
+			
+			border-style: solid;
+			border-color: #149414;
+			border-width: 1px;
+		}
+		.footer-panels {		
+			font-size: 15px;
+			
+			border-style: solid;
+			border-color: #149414;
+			border-width: 1px;
+		}
+		
+/* Acts as container and adds border to bottom */
+		.apto { 
+			padding: 5px;
+			border-bottom-style: solid; 
+			border-color: #149414;
+			border-width: 1px; 
+		}
+		
+/* Status Button, Status & Status Effects */
+		.yourStatusButton, .enemyStatusButton {
+			z-index: 2;
+			position: relative; 
+			float: left; 
+			
+			color: #dc2ce2;
+			border-color: #a517aa;
+		}
+		#yourStatus, #enemyStatus {
+			z-index: 1;
+			height: 50%;
+			width: 25%;
+			position: absolute;
+			
+			border-style: double; 
+			border-color: #a517aa;
+			border-width: 4px; 
+			
+			color: #dc2ce2;
+			background-color: #0a0a0a;
+		}
+		#yourStatus .apto, #enemyStatus .apto { 
+			border-bottom-style: double; 
+			border-color: inherit; 
+			border-width: inherit; 
+		}
+
+/* Name, Health, Mana & Skills */
+		#yourName, #enemyName { font-size: 175%; }
+		.health-css, .mana-css { text-align: left; font-size: 150%; }
+		.health-css { color: #df4343; }
+		.mana-css { color: #4343df; }
+		.skills-css { font-size: 140% }
+		
+/* Footer: Skill Desc & Battle Log */
+		#skillDescription { padding: 5px; color: #6be853; }
+		#battleLog-header-css { margin: 0; text-align: center; font-size: 20px; }
+		#battleLog { overflow: auto; padding: 5px; height: 100px; }
+
+	</style>
+</head>
+<body>
+	<div class="container rightShift">
+		<div class="character-panels">
+			<div class="apto">
+				<button class="yourStatusButton"> # </button>
+				<div id="yourStatus"><div class="apto"><p>Status Effects</p></div></div>
+				<span id="yourName">Our Young Magician</span>
+			</div>
+			<div class="apto">
+				<p class="health-css">Health: <span id="yourHealth">1000</span>/<span id="yourMaxHealth">1000</span></p>
+				<p class="mana-css">Mana: <span id="yourMana">1000</span>/<span id="yourMaxMana">1000</span></p>
+			</div>
+			<div>
+				<p class="skills-css yourSkillList"> - = Skills = - <br>
+					<button>skill 1</button>
+					<button>skill 2</button>
+				</p>
+			</div>
+
+		</div>
+		
+		<div class="character-panels leftShift">
+			<div class="apto">
+				<button class="enemyStatusButton"> # </button>
+				<div id="enemyStatus"><div class="apto"><p>Status Effects</p></div></div>
+				<span id="enemyName">The Puppet</span>
+			</div>
+			<div class="apto">
+				<p class="health-css">Health: <span id="enemyHealth">1000</span>/<span id="enemyMaxHealth">1000</span></p>
+				<p class="mana-css">Mana: <span id="enemyMana">1000</span>/<span id="enemyMaxMana">1000</span></p>
+			</div>
+			<div>
+				<p class="skills-css enemySkillList"> - = Skills = - <br>
+					<button>skill 1</button>
+					<button>skill 2</button>
+				</p>
+			</div>
+
+		</div>
+		
+	</div>
+	
+	<div class="container attachToBottom">
+		<div class="footer-panels">
+			<p id="skillDescription">Skill - 5 MP - Description dealing 10-20 damage</p>
+		</div>
+		<div class="footer-panels upShift">
+			<p id="battleLog-header-css" class="apto">- - = Battle Log = - -</p>
+			<div id="battleLog">
+				<p style="color: red;"> THE BATTLE HAS BEGUN </p>
+			</div>
+		</div>
+		
+	</div>
+		
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).on("click", ".yourStatusButton", function(){
+	$("#yourStatus").toggle();
+});
+$(document).on("click", ".enemyStatusButton", function(){
+	$("#enemyStatus").toggle();
+});
+
+
+</script>
+		
+</body>
+</html>
