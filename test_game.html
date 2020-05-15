@@ -3,181 +3,66 @@
 <html lang="en">
 <head>
 	<title>Turn-based Game</title>
-	<style>
-		* { box-sizing: border-box; }
-		
-		p { margin: 2px; }
-		body { margin: 1px; color: #2fc12f; font-family: monospace; background-color: black; }
-		button { color: green; outline: none; border-style: solid; border-color: #149414; background-color: #0a0a0a; }
-		button:active{ background-color: #2b2532; border-color: #ffffff; }
-		
-/* Button Animation */
-		button.btnAnimated{ animation-name: SelectedAnimation; animation-duration: 0.5s; }
-		@keyframes SelectedAnimation{
-			0% { outline-style: double; outline-width: 1px; outline-color: rgba(255, 255, 255, 1); outline-offset: 1px; }
-			20% { outline-style: double; outline-width: 1px; outline-color: rgba(255, 255, 255, 0.8); outline-offset: 3px; }
-			40% { outline-style: double; outline-width: 1px; outline-color: rgba(255, 255, 255, 0.6); outline-offset: 5px; }
-			60% { outline-style: double; outline-width: 1px; outline-color: rgba(255, 255, 255, 0.4); outline-offset: 7px; }
-			80% { outline-style: double; outline-width: 1px; outline-color: rgba(255, 255, 255, 0.2); outline-offset: 9px; }
-			100% { outline-style: double; outline-width: 1px; outline-color: rgba(255, 255, 255, 0); outline-offset: 11px; }
-		}
-
-
-/* Stuff */
-		.container{ font-size: 0px; }
-		.container::after{ content: "\a0"; }
-		.upShift { margin: -1px 0 0 0; }
-		.leftShift { margin: 0 0 0 -1px; }
-		.rightShift { margin: 0 -1px 0 0; }
-		.attachToBottom { width: 100%; position: absolute; bottom: 0px; left: 0px;}
-		
-/* Panels where everything is located in */
-		.character-panels {
-			width: 50%;
-			float: left;
-			
-			text-align: center;
-			font-size: 17px;
-			
-			border-style: solid;
-			border-color: #149414;
-			border-width: 1px;
-		}
-		.footer-panels {		
-			font-size: 15px;
-			
-			border-style: solid;
-			border-color: #149414;
-			border-width: 1px;
-		}
-		
-/* Acts as container and adds border to bottom */
-		.apto { 
-			padding: 5px;
-			border-bottom-style: solid; 
-			border-color: #149414;
-			border-width: 1px; 
-		}
-		
-/* Status Button, Status & Status Effects */
-		#yourStatusButton, #enemyStatusButton {
-			z-index: 2;
-			position: relative; 
-			float: left; 
-			
-			color: #dc2ce2;
-			border-color: #a517aa;
-		}
-		#yourStatusButton:active, #enemyStatusButton:active{ border-color: #dc28e2; }
-
-		#yourStatus, #enemyStatus {
-			z-index: 1;
-			height: 50%;
-			width: 25%;
-			position: absolute;
-			
-			font-size: 17px;
-			
-			border-style: double; 
-			border-color: #a517aa;
-			border-width: 4px; 
-			
-			color: #dc2ce2;
-			background-color: #0a0a0a;
-		}
-		#yourStatus .apto, #enemyStatus .apto { 
-			border-bottom-style: double; 
-			border-color: inherit; 
-			border-width: inherit; 
-		}
-		
-/* Statistics */
-		#yourStatsButton {
-			z-index: 2;
-			position: relative; 
-			float: right; 
-			
-			color: #2ce2be;
-			border-color: #17aa8d;
-		}
-		#yourStatsButton:active, #enemyStatusButton:active{ border-color: #1dd7b2; }
-		#yourStats {
-			z-index: 1;
-			height: 50%;
-			width: 25%;
-			position: absolute;
-			
-			font-size: 17px;
-			
-			border-style: double; 
-			border-color: #0e6755;
-			border-width: 4px; 
-			
-			color: #17aa8d;
-			background-color: #0a0a0a;
-		}
-		#yourStats .apto { 
-			border-bottom-style: double; 
-			border-color: inherit; 
-			border-width: inherit; 
-		}
-		
-/* Name, Health, Mana & Skills */
-		#yourName, #enemyName { font-size: 175%; }
-		.health-css, .mana-css { text-align: left; font-size: 150%; }
-		.health-css { color: #df4343; }
-		.mana-css { color: #4343df; }
-		.skills-css { font-size: 140% }
-		
-/* Footer: Skill Desc & Battle Log */
-		#skillDescription { padding: 5px; color: #6be853; }
-		#battleLog-header-css { margin: 0; text-align: center; font-size: 20px; }
-		#battleLog { overflow: auto; padding: 5px; height: 100px; }
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="GameRemake.css">
 </head>
 <body>
-	<div class="container rightShift">
+	<div id="page-loading"></div>
+	<div class="container right-shift">
 		<div class="character-panels">
-			<div class="apto">
-				<div class="container">
-					<button id="yourStatusButton"> # </button>
-					<div id="yourStatus" style="display: none;"><div class="apto"><p>Status Effects</p></div></div>
+			<div class="container-with-bottom">
+				<!-- Your Statuses -->
+				<div class="container" style="float: left; ">
+					<button id="your--status-button"> # </button>
+					<div id="your--status" style="display: none;"><div class="container-with-bottom"><p>Status Effects</p></div><div id="your--status-container"></div></div>
 				</div>
-				<div class="container" style="float: right; ">
-					<button id="yourStatsButton"> & </button>
-					<div id="yourStats" style="display: none; "><div class="apto"><p>Statistics</p></div></div>
+				<!-- Your Stats -->
+				<div class="container" style="float: left; margin-left: 5px;">
+					<button id="your--stats-button"> & </button>
+					<div id="your--stats" style="display: none; "><div class="container-with-bottom"><p>Statistics</p></div><div id="your--stats-container"></div></div>
 				</div>
-				
-				<span id="yourName">Our Young Magician</span>
+				<!-- Your Name -->
+				<span id="your--name">Our Young Magician</span>
 			</div>
-			
-			<div class="apto">
-				<p class="health-css">Health: <span id="yourHealth">1000</span>/<span id="yourMaxHealth">1000</span></p>
-				<p class="mana-css">Mana: <span id="yourMana">1000</span>/<span id="yourMaxMana">1000</span></p>
+			<!-- Your HP and MP -->
+			<div class="container-with-bottom">
+				<p class="css--health">Health: <span id="your--health">1000</span>/<span id="your--health-max">1000</span></p>
+				<p class="css--mana">Mana: <span id="your--mana">1000</span>/<span id="your--mana-max">1000</span></p>
 			</div>
+			<!-- Your Skills -->
 			<div>
-				<p class="skills-css yourSkillList"> - = Skills = - <br>
-					<button>skill 1</button>
-					<button>skill 2</button>
-				</p>
+				<p id="your--skill-list" class="css--skills"> - = Skills = - <br></p>
 			</div>
 
 		</div>
 		
-		<div class="character-panels leftShift">
-			<div class="apto">
-				<button id="enemyStatusButton"> # </button>
-				<div id="enemyStatus" style="display: none;"><div class="apto"><p>Status Effects</p></div></div>
-				
-				<span id="enemyName">The Puppet</span>
+		<div class="character-panels left-shift">
+			<div class="container-with-bottom">
+				<!-- Enemy Statuses -->
+				<div class="container" style="float: left; ">
+					<button id="enemy--status-button"> # </button>
+					<div id="enemy--status" style="display: none;"><div class="container-with-bottom"><p>Status Effects</p></div><div id="enemy--status-container"></div></div>
+				</div>
+				<!-- Enemy Stats -->
+				<div class="container" style="float: left; margin-left: 5px;">
+					<button id="enemy--stats-button"> & </button>
+					<div id="enemy--stats" style="display: none; ">
+						<div class="container-with-bottom">
+							<p>Statistics</p>
+						</div>
+						<div id="enemy--stats-container"></div>
+					</div>
+				</div>
+				<!-- Enemy Name -->
+				<span id="enemy--name">The Puppet</span>
 			</div>
-			<div class="apto">
-				<p class="health-css">Health: <span id="enemyHealth">1000</span>/<span id="enemyMaxHealth">1000</span></p>
-				<p class="mana-css">Mana: <span id="enemyMana">1000</span>/<span id="enemyMaxMana">1000</span></p>
+			<!-- Enemy HP and MP -->
+			<div class="container-with-bottom">
+				<p class="css--health">Health: <span id="enemy--health">1000</span>/<span id="enemy--health-max">1000</span></p>
+				<p class="css--mana">Mana: <span id="enemy--mana">1000</span>/<span id="enemy--mana-max">1000</span></p>
 			</div>
+			<!-- Enemy Skills -->
 			<div>
-				<p class="skills-css enemySkillList"> - = Skills = - <br>
+				<p id="enemy--skill-list" class="css--skills"> - = Skills = - <br>
 					<button>skill 1</button>
 					<button>skill 2</button>
 				</p>
@@ -187,13 +72,15 @@
 		
 	</div>
 	
-	<div class="container attachToBottom">
+	<div class="container attach-to-bottom">
+		<!-- Skill Description -->
 		<div class="footer-panels">
-			<p id="skillDescription">Skill - 5 MP - Description dealing 10-20 damage</p>
+			<p id="skill-description">Hover over any skill to get their stats</p>
 		</div>
+		<!-- Battle Log -->
 		<div class="footer-panels upShift">
-			<p id="battleLog-header-css" class="apto">- - = Battle Log = - -</p>
-			<div id="battleLog">
+			<p id="battle-log-header-css" class="container-with-bottom">- - = Battle Log = - -</p>
+			<div id="battle-log">
 				<p style="color: red;"> THE BATTLE HAS BEGUN </p>
 			</div>
 		</div>
@@ -202,25 +89,199 @@
 		
 		
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="GameRemakeVars.js"></script>
+<script src="GameRemakeLogic.js"></script>
+<script src="GameStatuses.js"></script>
+<script src="GameSummons.js"></script>
 <script>
-$(document).on("click", "#yourStatusButton", function(){
-	$("#yourStatus").fadeToggle();
+"use strict";
+
+let CE = [thePuppet, theBandit]
+  , CEK = 0
+  , currentEnemy = CE[CEK]
+  , round = 1;
+let characters = [thePlayer, currentEnemy];
+let statusTypes = ["increasingStatuses", "staticStatuses"];
+let statusElements = ["fire", "ice", "lightning"];
+let allYourSkills = Object.keys(thePlayer.skills);
+
+// Battle Handling
+$(document).on("click", ".action:not(.disabled)", function(){
+	HandleBattle(this);
 });
-$(document).on("click", "#enemyStatusButton", function(){
-	$("#enemyStatus").fadeToggle();
-});
-$(document).on("click", "#yourStatsButton", function(){
-	$("#yourStats").fadeToggle();
-});
-$(document).on("click", "button", function(){
-	if($(this).hasClass("btnAnimated") == false){
-		$(this).addClass("btnAnimated");
-		setTimeout(() => { $(this).removeClass("btnAnimated"); }, 500);
+function HandleBattle(context){
+	// Makes divider with round count in Battle Log
+	$("<p>").html("<span class='battle-log--divider-span'>Round "+round+"</span>").addClass("battle-log--divider").appendTo("#battle-log");
+	
+	// Activates some statuses and deceases them
+	if(hasStatuses(thePlayer) || hasStatuses(currentEnemy)){
+		$("<p>").html("<span class='battle-log--action-span'> STATUSES </span>").addClass("battle-log--organizer").appendTo("#battle-log");
 	}
-});
+	staticStatusesDiminish();
+	statusesActivate();	
+	increasingStatusesDiminish();
+	$("<p>").html("<span class='battle-log--action-span'> ACTIONS </span>").addClass("battle-log--organizer").appendTo("#battle-log");
+	// Player's Action
+	PlayerAction(context);
+	// Summons
+	if(hasSummons(thePlayer) || hasSummons(currentEnemy)){
+		$("<p>").html("<span class='battle-log--action-span'> SUMMONS </span>").addClass("battle-log--organizer").appendTo("#battle-log");
+	}
+	yourSummonsActivate();
+	// Update Stats & Statuses
+	UpdateStats();
+	UpdateStatuses();
+	// Mana Regen
+	if(thePlayer.stats.mana.usedMana == false){
+		yourManaRegen();
+	}
+	
+	// Reseting temporary variables
+	thePlayer.stats.mana.usedMana = false;
+	
+	$("#battle-log").scrollTop($("#battle-log")[0].scrollHeight);
+	round++;
+}
+
+/*-----------------------------------*/// ///*-----------------------------------*/
+// Player's Turn
+function PlayerAction(arg){	
+	let selectedSkill = thePlayer.skills[$(arg).attr("id")];
+	let	dmgTarget = selectedSkill.damageTarget;
+	let	hlTarget = selectedSkill.healTarget;
+	
+	// Creates properties
+	if(selectedSkill.propsCreate != undefined){
+		selectedSkill.propsCreate();
+	}
+	
+	// Applies special effect if it's set to apply on it's own
+	if(selectedSkill.special != undefined && selectedSkill.activateSpecialOn == "own"){
+		selectedSkill.special();
+	}
+	// Summons, if it can
+	if(selectedSkill.summon != undefined){
+		// Display initial summoning message
+		if(thePlayer.summons[selectedSkill.id] <= 0){
+			$("<p>").html("<strong>"+selectedSkill.sMessage+"</strong>").css("color", selectedSkill.color).appendTo("#battle-log");
+		// Display upgrade summon message
+		} else if(selectedSkill.sCurrentCount() < selectedSkill.sMaxCount){
+			$("<p>").html("<strong>"+selectedSkill.sIncrementMessage+"</strong>").css("color", selectedSkill.color).appendTo("#battle-log");
+		// Display max summoned message
+		} else {
+			$("<p>").html("<strong>"+selectedSkill.sMaxMessage+"</strong>").css("color", selectedSkill.color).appendTo("#battle-log");
+		}
+		// Activates summon ability
+		selectedSkill.summon();
+	}
+	
+	// All hits stored here
+	let yourDamageOutput = [];
+	let yourHealOutput = [];
+	
+	if(selectedSkill.manaUsage == undefined || thePlayer.stats.mana.currentMana >= selectedSkill.manaUsage){
+		//* DAMAGE HANDLING *//
+		if(selectedSkill.damageMin != undefined){
+			// Sees if damage skill doesn't have delay or delay is met
+			if(selectedSkill.damageCharge == undefined || selectedSkill.damageCharge <= selectedSkill.currentDamageCharge){
+				// Damage message
+				if(selectedSkill.damageMessage != undefined){
+					$("<p>").html("<strong>"+selectedSkill.damageMessage+"</strong>").css("color", selectedSkill.color).appendTo("#battle-log");
+				}
+				// Rolls damage for each hit
+				for(let i = 0; i < selectedSkill.hits; i++){
+					yourDamageOutput.push(getRndInteger(selectedSkill.damageMin, selectedSkill.damageMax));
+				}
+				// Applies damage reduction to each hit then apply hit to enemy
+				for(let i = 0; i < yourDamageOutput.length; i++){
+					yourDamageOutput[i] = Math.max(0, Math.ceil((yourDamageOutput[i] - (yourDamageOutput[i] * (dmgTarget.stats.combat.defence / 1000))) - (dmgTarget.stats.combat.defence / 10)));
+					dmgTarget.stats.health.currentHealth -= yourDamageOutput[i];
+					
+					// Logs in Battle Log each hit's damage and element.
+					if(dmgTarget == thePlayer){
+						$("<p>").text("- Damaged yourself for "+yourDamageOutput[i]+" '"+selectedSkill.element+"' damage").css("color", selectedSkill.color).appendTo("#battle-log");
+					} else if (dmgTarget == currentEnemy) {
+						$("<p>").text("- Damaged opponent for  "+yourDamageOutput[i]+" '"+selectedSkill.element+"' damage").css("color", selectedSkill.color).appendTo("#battle-log");
+					} else {
+						$("<p>").text("How did you even get this placeholder message?").css("color", "white").appendTo("#battle-log");
+					}
+				}
+				// Applies special effect if it's set to apply on damage
+				if(selectedSkill.special != undefined && selectedSkill.activateSpecialOn == "damage"){
+					selectedSkill.special();
+				}
+				if(selectedSkill.damageCharge != undefined){
+					selectedSkill.currentDamageCharge = 0;
+				}
+			} else {
+				selectedSkill.currentDamageCharge++;
+				$("<p>").html("<strong>"+selectedSkill.damageChargeMessage+"</strong>").css("color", selectedSkill.color).appendTo("#battle-log");
+				$("<p>").text("- "+selectedSkill.name+"'s damage is charging... ("+selectedSkill.currentDamageCharge+"/"+selectedSkill.damageCharge+")").css("color", selectedSkill.color).appendTo("#battle-log");
+			}
+		}
+		//* HEAL HANDLING *//
+		if(selectedSkill.healMin != undefined){
+			// Sees if heal skill doesn't have delay or delay is met
+			if(selectedSkill.healCharge == undefined || selectedSkill.healCharge <= selectedSkill.currentHealCharge){
+				// Heal message
+				if(selectedSkill.healMessage != undefined){
+					$("<p>").html("<strong>"+selectedSkill.healMessage+"</strong>").css("color", selectedSkill.color).appendTo("#battle-log");
+				}
+				// Rolls heal for each hit
+				for(let i = 0; i < selectedSkill.hits; i++){
+					yourHealOutput.push(getRndInteger(selectedSkill.healMin, selectedSkill.healMax));
+				}
+				// Applies heal reduction to each hit then apply hit to enemy
+				for(let i = 0; i < yourHealOutput.length; i++){
+					hlTarget.stats.health.currentHealth += yourHealOutput[i];
+					
+					// Logs in Battle Log each hit's damage and element.
+					if(hlTarget == thePlayer){
+						$("<p>").text("- Healed yourself for "+yourHealOutput[i]+" '"+selectedSkill.element+"' health").css("color", selectedSkill.color).appendTo("#battle-log");
+					} else if (hlTarget == currentEnemy) {
+						$("<p>").text("- Healed opponent for "+yourHealOutput[i]+" '"+selectedSkill.element+"' health").css("color", selectedSkill.color).appendTo("#battle-log");
+					} else {
+						$("<p>").text("How did you even get this placeholder message?").css("color", "white").appendTo("#battle-log");
+					}
+				}
+				// Applies special effect if it's set to apply on heal
+				if(selectedSkill.special != undefined && selectedSkill.activateSpecialOn == "heal"){
+					selectedSkill.special();
+				}
+				if(selectedSkill.healCharge != undefined){
+					selectedSkill.currentHealCharge = 0;
+				}
+			} else {
+				selectedSkill.currentHealCharge++;
+				$("<p>").html("<strong>"+selectedSkill.healChargeMessage+"</strong>").css("color", selectedSkill.color).appendTo("#battle-log");
+				$("<p>").text("- "+selectedSkill.name+"'s heal is charging... ("+selectedSkill.currentHealCharge+"/"+selectedSkill.healCharge+")").css("color", selectedSkill.color).appendTo("#battle-log");
+			}
+		}
+		// Deducts mana
+		if(selectedSkill.manaUsage != undefined){
+			thePlayer.stats.mana.currentMana -= selectedSkill.manaUsage;
+			thePlayer.stats.mana.usedMana = true;
+		}
+		
+		// Gives cooldown to skill
+		selectedSkill.currentCooldown += selectedSkill.cooldownAfterUse;
+		// Dimishing cooldowns
+		CDdiminish();
+		
+	} else {
+		$("<p>").text("Not enough mana: You tried to use "+selectedSkill.name+", but only sparkles comes out...").css("color", "grey").appendTo("#battle-log");
+	}
+	
+	// Sets HP & MP
+	SetHPAndMP();
+}
 
 
+window.onload = function(){
+	$("#page-loading").fadeOut("fast");
+}
 </script>
+<script src="GameHoverDescriptions.js"></script>
 		
 </body>
 </html>
