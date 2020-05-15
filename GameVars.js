@@ -1,50 +1,4 @@
 "use strict";
-/* 
-[E]
-Skills:
-	id                 : "id",
-	name               : "Name",
-	element            : "Element",
-	description        : "Description.",
-	color              : "hsl(0, 75%, 75%)",
-
-	hits               : 1,
-	manaUsage          : 30,
-	cooldownAfterUse   : 1,
-	currentCooldown    : 0,
-	
-	get damageTarget() { return keyword; }, // Accepts one of: thePlayer, currentEnemy
-	baseDamageMin      : 10,
-	baseDamageMax      : 20,
-	get damageMin()    { return Math.floor(this.baseDamageMin * (thePlayer.stats.combat.pyromancy / 100)); },
-	get damageMax()    { return Math.floor(this.baseDamageMax * (thePlayer.stats.combat.pyromancy / 100)); },
-	damageCharge       : 2,
-	currentDamageCharge: 0,
-
-	get healTarget()   { return keyword; }, // Accepts one of: thePlayer, currentEnemy
-	baseHealMin        : 1,
-	baseHealMax        : 2,
-	get healMin()      { return Math.floor(this.baseHealMin * (thePlayer.stats.combat.pyromancy / 100)); },
-	get healMax()      { return Math.floor(this.baseHealMax * (thePlayer.stats.combat.pyromancy / 100)); },
-	healCharge       : 2,
-	currentHealCharge: 0,
-
-	activateSpecialOn  : "keyWord",  // Accepts 1 of: "damage", "heal", "own"
-	specialDesc : "Applies 2 stacks of Flickering on the opponent, maximum of 10 stacks - Flickering does 2 damage per stack every round.",
-	appliedStacks      : 2,
-	maxStacks          : 10,
-	special            : function() {
-		if(this.TARGET.STATUS_TYPE.ELEMENT.STATUS < this.maxStacks){ 
-			this.TARGET.STATUS_TYPE.ELEMENT.STATUS += Math.min(this.appliedStacks, this.maxStacks - this.TARGET.STATUS_TYPE.ELEMENT.STATUS);
-		} 
-	},
-	propsCreate         : function(){
-		if(this.TARGET.STATUS_TYPE.ELEMENT.hasOwnProperty("STATUS") == false){
-			this.TARGET.STATUS_TYPE.ELEMENT.STATUS = 0;
-		}
-	}
- */
-
 let thePlayer = {
 	stats : {
 		health : {
@@ -450,7 +404,7 @@ let thePuppet = {
 	summons : {},
 	other : {}
 }
-let theBandit = {
+let theBandit = { // Future stuff
 	name: "Le Bandito",
 	stats : {
 		health : {
